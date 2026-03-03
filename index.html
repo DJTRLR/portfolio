@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Djadje Traoré — Portfolio</title>
+  <link rel="stylesheet" href="tokens.css" />
+</head>
+<body>
+
+<!-- Fade masks -->
+<div class="mask-top"></div>
+<div class="mask-bottom"></div>
+
+<!-- ─── NAV PILL ─── -->
+<nav class="pill">
+  <a href="index.html" class="active home-icon" aria-label="Accueil">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+  </a>
+  <div class="nav-sep"></div>
+  <a href="about.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <span class="nav-label">À propos</span>
+  </a>
+  <a href="experiences.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+    <span class="nav-label">Expériences</span>
+  </a>
+  <a href="competences.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <span class="nav-label">Compétences</span>
+  </a>
+  <a href="contact.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="nav-label">Contact</span>
+  </a>
+</nav>
+
+<!-- ─── MAIN ─── -->
+<main>
+  <div class="column gap-48" style="align-items:center; padding-top: 48px;">
+
+    <!-- Center block -->
+    <div class="col gap-32" style="max-width:480px; align-items:center; text-align:center;">
+
+      <!-- Badge "disponible" -->
+      <div class="reveal reveal-d1">
+        <a href="contact.html" class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>Disponible · Stage SISR</span>
+          <span class="badge-label">Jan–Fév 2026</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Headline -->
+      <div class="reveal reveal-d2">
+        <h1 class="display-strong-xl" style="text-align:center;">
+          Systèmes, réseaux &amp; infrastructure IT
+        </h1>
+      </div>
+
+      <!-- Subline -->
+      <div class="reveal reveal-d3">
+        <p class="display-default-xs on-neutral-weak" style="text-align:center; max-width:400px; line-height:1.6;">
+          Je suis <strong style="color:var(--neutral-on-background-strong); font-weight:500;">Djadje Traoré</strong>, étudiant en BTS SIO option SISR au Lycée de Cachan. Passionné par les réseaux et l'infrastructure.
+        </p>
+      </div>
+
+      <!-- CTA button -->
+      <div class="reveal reveal-d4">
+        <a href="about.html" class="btn btn-secondary" data-border="rounded">
+          <div class="avatar" style="width:28px;height:28px;font-size:0.7rem;margin-left:-4px;border-width:1px;">DT</div>
+          À propos de moi
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="reveal reveal-d5 fill-width" style="max-width: var(--max-width-m);">
+      <div class="line-h"></div>
+    </div>
+
+    <!-- Project cards aperçu -->
+    <div class="reveal reveal-d5 fill-width" style="max-width: var(--max-width-m);">
+      <div class="row between mb-32">
+        <div class="line-h" style="max-width:48px; flex-shrink:0;"></div>
+      </div>
+
+      <div class="row gap-24 mb-40 wrap" style="align-items:flex-start;">
+        <div style="flex:1; min-width:200px; padding-left:24px; padding-top:24px;">
+          <h2 class="display-strong-xs" style="max-width:220px; line-height:1.3;">Mes expériences en entreprise</h2>
+        </div>
+        <div style="flex:3; padding: 0 20px;">
+          <div class="col gap-16">
+
+            <a href="experiences.html" class="project-card">
+              <div class="project-card-thumb">🌐</div>
+              <div class="project-card-body">
+                <div class="row between">
+                  <span class="heading-strong-l">Technicien réseau — INA</span>
+                  <span class="heading-default-xs">Nov–Déc 2023</span>
+                </div>
+                <p class="body-default-s on-brand">Technicien réseau</p>
+                <p class="body-default-m mt-8">Configuration de modules Palo Alto 40G et installation de serveurs à l'Institut National de l'Audiovisuel.</p>
+                <div class="skill-tags-row mt-8">
+                  <span class="tag">Palo Alto</span>
+                  <span class="tag">Réseaux 40G</span>
+                  <span class="tag">Serveurs</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="experiences.html" class="project-card">
+              <div class="project-card-thumb">🖥️</div>
+              <div class="project-card-body">
+                <div class="row between">
+                  <span class="heading-strong-l">Support utilisateurs — Merlin Info</span>
+                  <span class="heading-default-xs">Juin–Juil 2025</span>
+                </div>
+                <p class="body-default-s on-brand">Support N1/N2</p>
+                <p class="body-default-m mt-8">Assistance aux utilisateurs, gestion des tickets d'incidents et suivi des demandes en entreprise IT.</p>
+                <div class="skill-tags-row mt-8">
+                  <span class="tag">Help Desk</span>
+                  <span class="tag">ITSM</span>
+                  <span class="tag">Support</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 / <a href="about.html">Djadje Traoré</a> / BTS SIO SISR — Lycée de Cachan</p>
+    <div class="footer-icons">
+      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="tel:0767908541" class="icon-btn" title="Téléphone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Live time display (like magic-portfolio TimeDisplay)
+  function updateTime() {
+    const el = document.getElementById('live-time');
+    if (!el) return;
+    el.textContent = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit', second:'2-digit', hour12: false, timeZone:'Europe/Paris' });
+  }
+  updateTime(); setInterval(updateTime, 1000);
+</script>
+</body>
+</html>
