@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Djadje Traoré</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    /* TOC sidebar (like magic-portfolio TableOfContents) */
+    .toc {
+      position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+      padding-left: 24px; display: flex; flex-direction: column; gap: 32px;
+    }
+    .toc-section { display: flex; flex-direction: column; gap: 8px; }
+    .toc-link {
+      font-size: 12px; font-weight: 500; color: var(--neutral-on-background-weak);
+      text-decoration: none; font-family: var(--font-label);
+      transition: color var(--transition-micro-medium);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toc-link::before {
+      content:''; width: 16px; height: 1px;
+      background: currentColor; opacity: 0.4;
+      transition: width var(--transition-micro-medium), opacity var(--transition-micro-medium);
+    }
+    .toc-link:hover, .toc-link.active { color: var(--neutral-on-background-strong); }
+    .toc-link:hover::before { width: 24px; opacity: 1; }
+    .toc-sub { padding-left: 8px; font-size: 11px; color: var(--neutral-on-background-weak); text-decoration:none; display:block; margin-top:2px; font-family:var(--font-label); transition:color var(--transition-micro-medium); }
+    .toc-sub:hover { color: var(--neutral-on-background-medium); }
+    @media (max-width: 1100px) { .toc { display: none; } }
+
+    /* Schedule button */
+    .schedule-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--brand-alpha-medium);
+      background: var(--brand-alpha-weak);
+      border-radius: var(--radius-full);
+      padding: 4px 4px 4px 12px;
+      font-size: 13px; color: var(--neutral-on-background-strong); text-decoration:none;
+      transition: background var(--transition-micro-medium);
+      backdrop-filter: blur(4px);
+    }
+    .schedule-btn:hover { background: var(--brand-alpha-medium); }
+    .schedule-btn .icon-wrap {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:28px; height:28px; border-radius:var(--radius-full);
+      background: var(--neutral-alpha-medium); border: 1px solid var(--neutral-border-medium);
+      flex-shrink:0;
+    }
+    .schedule-btn svg { width: 13px; height: 13px; }
+
+    /* Progress bar for language */
+    .progress-bar {
+      height: 3px; border-radius: 2px;
+      background: var(--neutral-border-weak); overflow: hidden; margin-top:4px;
+    }
+    .progress-fill { height: 100%; border-radius: 2px; background: var(--brand-solid); }
+  </style>
+</head>
+<body>
+
+<div class="mask-top"></div>
+<div class="mask-bottom"></div>
+
+<!-- TOC (Table of Contents, fixed left) -->
+<div class="toc">
+  <div class="toc-section">
+    <a class="toc-link" href="#introduction">Introduction</a>
+  </div>
+  <div class="toc-section">
+    <a class="toc-link" href="#experiences">Expériences</a>
+    <a class="toc-sub" href="#merlin">Merlin Informatique</a>
+    <a class="toc-sub" href="#ina">INA</a>
+    <a class="toc-sub" href="#arcueil">Mairie d'Arcueil</a>
+  </div>
+  <div class="toc-section">
+    <a class="toc-link" href="#formation">Formation</a>
+    <a class="toc-sub" href="#bts">Lycée de Cachan</a>
+  </div>
+  <div class="toc-section">
+    <a class="toc-link" href="#competences">Compétences</a>
+  </div>
+</div>
+
+<!-- NAV PILL -->
+<nav class="pill">
+  <a href="index.html" class="home-icon" aria-label="Accueil">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+  </a>
+  <div class="nav-sep"></div>
+  <a href="about.html" class="active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <span class="nav-label">À propos</span>
+  </a>
+  <a href="experiences.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+    <span class="nav-label">Expériences</span>
+  </a>
+  <a href="competences.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <span class="nav-label">Compétences</span>
+  </a>
+  <a href="veille.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <span class="nav-label">Veille</span>
+  </a>
+  <a href="contact.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="nav-label">Contact</span>
+  </a>
+</nav>
+
+<main>
+  <div class="column" style="max-width: var(--max-width-m);">
+
+    <div class="about-layout">
+
+      <!-- ─── SIDEBAR: avatar sticky ─── -->
+      <div class="about-sidebar">
+        <div class="reveal reveal-d1">
+          <div class="avatar avatar-xl">DT</div>
+        </div>
+        <div class="reveal reveal-d2 col gap-8" style="align-items:center;">
+          <div class="row gap-8" style="color:var(--brand-on-background-weak);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="body-default-s">Arcueil, France</span>
+          </div>
+          <div class="row gap-8 wrap" style="justify-content:center;">
+            <span class="tag">🇫🇷 Français</span>
+            <span class="tag">🇬🇧 Anglais B2</span>
+          </div>
+          <a href="cv-djadje-traore.pdf" download class="btn btn-secondary" style="font-size:12px; padding:7px 14px; width:100%; justify-content:center; margin-top:4px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Telecharger CV
+          </a>
+        </div>
+      </div>
+
+      <!-- ─── BODY ─── -->
+      <div class="about-body col gap-40">
+
+        <!-- Header: name + role + socials -->
+        <div id="introduction" class="col gap-16">
+
+          <!-- Schedule a call button -->
+          <div class="reveal reveal-d1" style="width:fit-content;">
+            <a href="mailto:traoredjadje310@gmail.com" class="schedule-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand-on-background-weak)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Prendre contact
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="reveal reveal-d2">
+            <h1 class="display-strong-xl">Djadje Traoré</h1>
+          </div>
+
+          <div class="reveal reveal-d3">
+            <p class="display-default-xs on-neutral-weak">Étudiant BTS SIO · Option SISR</p>
+          </div>
+
+          <!-- Social buttons -->
+          <div class="reveal reveal-d4 row gap-8 wrap" style="padding-top:4px; padding-bottom:4px;">
+            <a href="mailto:traoredjadje310@gmail.com" class="btn btn-secondary" style="font-size:13px; padding:7px 14px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+            <a href="tel:0767908541" class="btn btn-secondary" style="font-size:13px; padding:7px 14px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Téléphone
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Intro paragraph -->
+        <div class="reveal reveal-d4 col gap-16 body-default-l">
+          <p>Passionné par l'infrastructure IT, les systèmes et les réseaux, je suis en 2ème année de <strong style="color:var(--neutral-on-background-strong); font-weight:500;">BTS SIO option SISR</strong> au Lycée Polyvalent de Cachan. Je cherche un stage du <strong style="color:var(--neutral-on-background-strong); font-weight:500;">12 janvier au 21 février 2026</strong> dans le domaine des systèmes et réseaux en Île-de-France.</p>
+          <p>À travers trois stages dans des environnements variés — collectivité locale, entreprise privée IT et institution culturelle nationale — j'ai acquis une expérience pratique solide sur des outils professionnels comme VMware, Active Directory, Palo Alto Networks et GLPI.</p>
+        </div>
+
+        <div class="line-h reveal"></div>
+
+        <!-- WORK EXPERIENCE -->
+        <div class="col gap-32">
+          <h2 id="experiences" class="display-strong-s">Expériences professionnelles</h2>
+
+          <div class="col gap-32">
+
+            <!-- EXP 1 -->
+            <div id="merlin" class="exp-block reveal">
+              <div class="row between align-start">
+                <span class="heading-strong-l">Merlin Informatique</span>
+                <span class="heading-default-xs">Juin – Juil. 2025</span>
+              </div>
+              <p class="body-default-s on-brand mt-8">Support aux utilisateurs</p>
+              <ul class="exp-achievements">
+                <li>Assistance aux utilisateurs pour résoudre les problèmes techniques rencontrés au quotidien</li>
+                <li>Gestion des tickets d'incidents et suivi des demandes d'assistance via outil ITSM</li>
+              </ul>
+            </div>
+
+            <div class="line-h"></div>
+
+            <!-- EXP 2 -->
+            <div id="ina" class="exp-block reveal">
+              <div class="row between align-start">
+                <span class="heading-strong-l">INA — Institut National de l'Audiovisuel</span>
+                <span class="heading-default-xs">Nov. – Déc. 2023</span>
+              </div>
+              <p class="body-default-s on-brand mt-8">Technicien en réseau</p>
+              <ul class="exp-achievements">
+                <li>Configuration de modules 40G sur équipements Palo Alto Networks</li>
+                <li>Installation et mise en service de serveurs physiques</li>
+              </ul>
+            </div>
+
+            <div class="line-h"></div>
+
+            <!-- EXP 3 -->
+            <div id="arcueil" class="exp-block reveal">
+              <div class="row between align-start">
+                <span class="heading-strong-l">Mairie d'Arcueil</span>
+                <span class="heading-default-xs">Jan. – Avr. 2023</span>
+              </div>
+              <p class="body-default-s on-brand mt-8">Help Desk — Technicien</p>
+              <ul class="exp-achievements">
+                <li>Déploiement de postes de travail et mises à jour logicielles</li>
+                <li>Mise en place d'un système de gestion des tickets d'assistance informatique</li>
+                <li>Maintenance préventive des ordinateurs du parc municipal</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="line-h reveal"></div>
+
+        <!-- FORMATION -->
+        <div class="col gap-32">
+          <h2 id="formation" class="display-strong-s">Formation</h2>
+
+          <div class="col gap-24">
+
+            <div id="bts" class="col gap-4 reveal">
+              <div class="row between align-start">
+                <span class="heading-strong-l">BTS SIO option SISR</span>
+              </div>
+              <span class="heading-default-xs">Sept. 2024 – Juil. 2026 · Lycée Polyvalent de Cachan</span>
+            </div>
+
+            <div class="line-h"></div>
+
+            <div class="col gap-4 reveal">
+              <span class="heading-strong-l">Bac Pro Système Numérique RISC</span>
+              <span class="heading-default-xs">Sept. 2023 – Juil. 2024 · Lycée Polyvalent de Cachan</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="line-h reveal"></div>
+
+        <!-- COMPÉTENCES TECHNIQUES -->
+        <div class="col gap-32 mb-48">
+          <h2 id="competences" class="display-strong-s">Compétences techniques</h2>
+
+          <div class="col gap-32">
+
+            <div class="skill-block reveal">
+              <span class="heading-strong-l">Virtualisation</span>
+              <p class="body-default-m mt-8">Déploiement et gestion d'environnements virtualisés en production.</p>
+              <div class="skill-tags-row">
+                <span class="tag">VMware vSphere</span>
+                <span class="tag">Hyper-V</span>
+              </div>
+            </div>
+
+            <div class="line-h"></div>
+
+            <div class="skill-block reveal">
+              <span class="heading-strong-l">Sauvegarde & Restauration</span>
+              <p class="body-default-m mt-8">Politiques de sauvegarde et restauration de systèmes.</p>
+              <div class="skill-tags-row">
+                <span class="tag">Veeam Backup</span>
+                <span class="tag">Windows Server Backup</span>
+              </div>
+            </div>
+
+            <div class="line-h"></div>
+
+            <div class="skill-block reveal">
+              <span class="heading-strong-l">Active Directory</span>
+              <p class="body-default-m mt-8">Administration du service d'annuaire, gestion des identités et des accès.</p>
+              <div class="skill-tags-row">
+                <span class="tag">Gestion utilisateurs</span>
+                <span class="tag">GPO</span>
+                <span class="tag">Droits d'accès</span>
+                <span class="tag">Windows Server</span>
+              </div>
+            </div>
+
+            <div class="line-h"></div>
+
+            <div class="skill-block reveal">
+              <span class="heading-strong-l">Réseaux & Sécurité</span>
+              <p class="body-default-m mt-8">Configuration d'équipements réseau et firewalls NGFW en environnement de production.</p>
+              <div class="skill-tags-row">
+                <span class="tag">Palo Alto Networks</span>
+                <span class="tag">Modules 40G</span>
+                <span class="tag">GLPI</span>
+                <span class="tag">TCP/IP</span>
+              </div>
+            </div>
+
+            <div class="line-h"></div>
+
+            <div class="skill-block reveal">
+              <span class="heading-strong-l">Support & Déploiement</span>
+              <p class="body-default-m mt-8">Déploiement de postes de travail et assistance aux utilisateurs en environnement professionnel.</p>
+              <div class="skill-tags-row">
+                <span class="tag">Déploiement postes</span>
+                <span class="tag">Réparation hardware</span>
+                <span class="tag">Maintenance préventive</span>
+                <span class="tag">Windows 10/11</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 / <a href="about.html">Djadje Traoré</a> / BTS SIO SISR — Lycée de Cachan</p>
+    <div class="footer-icons">
+      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="tel:0767908541" class="icon-btn" title="Téléphone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

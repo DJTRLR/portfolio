@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veille Technologique - Djadje Traore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    :root {
+      --g: #00ff41; --gd: #00b32d; --gbg: rgba(0,255,65,0.15);
+      --cbg: #0a0a0a; --cs: #0d0d0d; --cb: rgba(0,255,65,0.25);
+      --cf: 'Share Tech Mono', monospace; --cd: 'VT323', monospace;
+    }
+    body { background:#0a0a0a; font-family:'Share Tech Mono',monospace; }
+    body::after { content:''; position:fixed; inset:0; z-index:9998; pointer-events:none;
+      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px); }
+    body::before { background-image:radial-gradient(#00b32d 1px,transparent 1px); opacity:0.05; }
+    .mask-top { background:linear-gradient(to bottom,#0a0a0a,transparent); }
+    .mask-bottom { background:linear-gradient(to top,#0a0a0a,transparent); }
+    nav.pill { background:rgba(13,13,13,0.95); border-color:rgba(0,255,65,0.25);
+      box-shadow:0 0 24px rgba(0,255,65,0.08),0 8px 32px rgba(0,0,0,0.8); }
+    nav.pill a { color:#00b32d; font-family:'Share Tech Mono',monospace; font-size:12px; }
+    nav.pill a:hover,nav.pill a.active { color:#00ff41; background:rgba(0,255,65,0.07); }
+    nav.pill .nav-sep { background:rgba(0,255,65,0.25); }
+    .tw { border:1px solid rgba(0,255,65,0.25); border-radius:8px; overflow:hidden;
+      background:#0d0d0d; box-shadow:0 0 40px rgba(0,255,65,0.06); }
+    .ttb { background:#111; border-bottom:1px solid rgba(0,255,65,0.25);
+      padding:10px 16px; display:flex; align-items:center; gap:8px; }
+    .td { width:10px;height:10px;border-radius:50%; }
+    .tdr{background:#2a0a0a;border:1px solid #ff5f57;}
+    .tdy{background:#1a1500;border:1px solid #ffbd2e;}
+    .tdg{background:#0a1a00;border:1px solid #28c840;}
+    .ttitle { font-family:'Share Tech Mono',monospace; font-size:12px; color:#00b32d; margin-left:8px; }
+    .tbody { padding:28px 32px 36px; }
+    h1,h2,h3 { font-family:'VT323',monospace; color:#00ff41; letter-spacing:0.02em; }
+    .ptitle { font-family:'VT323',monospace; font-size:clamp(2.4rem,6vw,3.8rem); color:#00ff41;
+      line-height:1; text-shadow:0 0 20px rgba(0,255,65,0.4); }
+    .psub { font-size:13px; color:#00b32d; line-height:1.7; }
+    .prompt::before { content:'> '; color:#00b32d; }
+    .snum { font-family:'VT323',monospace; font-size:1.1rem; color:#00b32d;
+      border:1px solid rgba(0,255,65,0.25); padding:2px 10px; border-radius:4px; }
+    .stitle { font-family:'VT323',monospace; font-size:1.6rem; color:#00ff41;
+      text-shadow:0 0 12px rgba(0,255,65,0.3); }
+    .sline { flex:1; height:1px; background:linear-gradient(to right,rgba(0,255,65,0.25),transparent); }
+    .shead { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+    .ac { border:1px solid rgba(0,255,65,0.25); border-radius:6px; padding:22px 24px;
+      background:rgba(0,255,65,0.02); display:flex; flex-direction:column; gap:10px;
+      transition:border-color 0.15s,background 0.15s; }
+    .ac:hover { border-color:rgba(0,255,65,0.5); background:rgba(0,255,65,0.04); }
+    .am { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .adate { font-size:11px; color:#00b32d; border:1px solid rgba(0,255,65,0.25);
+      padding:2px 8px; border-radius:4px; }
+    .asrc { font-size:11px; color:rgba(0,255,65,0.4); }
+    .atitle { font-family:'VT323',monospace; font-size:1.3rem; color:#00ff41; line-height:1.2; }
+    .abody { font-size:13px; color:rgba(0,255,65,0.7); line-height:1.75; }
+    .atags { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+    .ct { font-size:11px; color:#00b32d; border:1px solid rgba(0,255,65,0.25);
+      padding:2px 8px; border-radius:3px; background:rgba(0,255,65,0.03); }
+    .cursor { animation:blink 1s step-end infinite; }
+    @keyframes blink { 50%{opacity:0;} }
+    .stat-row { display:flex; flex-wrap:wrap; gap:12px; }
+    .sb { border:1px solid rgba(0,255,65,0.25); border-radius:4px; padding:12px 16px;
+      background:rgba(0,255,65,0.02); flex:1; min-width:120px; }
+    .sv { font-family:'VT323',monospace; font-size:2rem; color:#00ff41;
+      text-shadow:0 0 12px rgba(0,255,65,0.3); line-height:1; }
+    .sl { font-size:11px; color:#00b32d; }
+    .cline { height:1px; background:rgba(0,255,65,0.25); width:100%; margin:8px 0; }
+    footer .footer-inner { border:1px solid rgba(0,255,65,0.25); background:rgba(13,13,13,0.8); }
+    footer p,footer a { font-family:'Share Tech Mono',monospace; color:#00b32d; font-size:12px; }
+    footer a:hover { color:#00ff41; }
+    .col{display:flex;flex-direction:column;}
+    .row{display:flex;flex-direction:row;align-items:center;}
+    .gap-12{gap:12px;} .gap-16{gap:16px;} .gap-20{gap:20px;} .gap-24{gap:24px;} .gap-32{gap:32px;} .gap-48{gap:48px;}
+    .reveal{opacity:0;transform:translateY(8px);animation:rfx 0.6s cubic-bezier(0.16,1,0.3,1) forwards;}
+    .rd1{animation-delay:.05s;}.rd2{animation-delay:.12s;}.rd3{animation-delay:.22s;}.rd4{animation-delay:.34s;}.rd5{animation-delay:.48s;}
+    @keyframes rfx{to{opacity:1;transform:translateY(0);}}
+    .column{display:flex;flex-direction:column;width:100%;max-width:720px;}
+  </style>
+</head>
+<body>
+<div class="mask-top"></div>
+<div class="mask-bottom"></div>
+<nav class="pill">
+  <a href="index.html" class="home-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+  <div class="nav-sep"></div>
+  <a href="about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span class="nav-label">A propos</span></a>
+  <a href="experiences.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span class="nav-label">Experiences</span></a>
+  <a href="competences.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="nav-label">Competences</span></a>
+  <a href="veille.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="nav-label">Veille</span></a>
+  <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="nav-label">Contact</span></a>
+</nav>
+<main style="padding:80px 24px 120px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;">
+<div class="column col gap-48">
+
+  <div class="tw reveal rd1">
+    <div class="ttb"><div class="td tdr"></div><div class="td tdy"></div><div class="td tdg"></div><span class="ttitle">veille_techno.sh -- BTS SIO SISR -- Djadje Traore</span></div>
+    <div class="tbody col gap-16">
+      <p class="psub prompt">Initialisation de la veille technologique...</p>
+      <h1 class="ptitle">ZERO TRUST<span class="cursor">_</span></h1>
+      <p class="psub" style="max-width:560px;">Le modele de securite qui redefinit les reseaux d'entreprise.<br/><span style="color:rgba(0,255,65,0.45);">Periode couverte : janvier 2025 - mars 2026</span></p>
+      <div class="stat-row" style="margin-top:8px;">
+        <div class="sb"><div class="sv">96%</div><div class="sl">des entreprises adoptent l'approche Zero Trust</div></div>
+        <div class="sb"><div class="sv">81%</div><div class="sl">deploieront le ZT d'ici fin 2026</div></div>
+        <div class="sb"><div class="sv">65%</div><div class="sl">vont remplacer leur VPN par ZT en 2025</div></div>
+        <div class="sb"><div class="sv">60%</div><div class="sl">des cyberattaques en France visent des PME (ANSSI)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col gap-20 reveal rd2">
+    <div class="shead"><span class="snum">01</span><span class="stitle">C'EST QUOI LE ZERO TRUST ?</span><div class="sline"></div></div>
+    <div class="ac">
+      <div class="am"><span class="adate">Fevrier 2025</span><span class="asrc">// kiteworks.com</span></div>
+      <div class="atitle">Le nouveau perimetre : l'identite</div>
+      <p class="abody">Pendant des annees, la securite IT reposait sur un principe simple : tout ce qui est a l'interieur du reseau est de confiance. Le pare-feu protegeait le chateau. Avec le teletravail, le cloud et les appareils personnels, ce modele est devenu obsolete.<br/><br/>Le Zero Trust renverse tout : <strong style="color:#00ff41;">ne jamais faire confiance, toujours verifier</strong>. Chaque utilisateur, chaque machine, chaque application doit prouver son identite a chaque acces, meme depuis l'interieur du reseau.</p>
+      <div class="atags"><span class="ct">Zero Trust</span><span class="ct">Identite</span><span class="ct">Architecture reseau</span><span class="ct">Cybersecurite</span></div>
+    </div>
+  </div>
+
+  <div class="col gap-20 reveal rd3">
+    <div class="shead"><span class="snum">02</span><span class="stitle">LA FIN DES VPN : CHIFFRES 2025</span><div class="sline"></div></div>
+    <div class="ac">
+      <div class="am"><span class="adate">Avril 2025</span><span class="asrc">// Zscaler ThreatLabz + CIO.com</span></div>
+      <div class="atitle">VPN Risk Report 2025 : bascule massive vers le Zero Trust</div>
+      <p class="abody">Le rapport Zscaler (600+ pros IT interroges) est sans appel. Les CVE VPN ont augmente de 82,5% en un an. La CVE-2025-22457 permet a un attaquant non authentifie d'executer du code a distance. 92% des entreprises redoutent que des failles VPN non patchees menent a des ransomwares.<br/><br/>La solution : le ZTNA (Zero Trust Network Access), qui remplace le tunnel VPN par un acces granulaire verifie en permanence, application par application.</p>
+      <div class="atags"><span class="ct">VPN</span><span class="ct">ZTNA</span><span class="ct">CVE-2025-22457</span><span class="ct">Ransomware</span><span class="ct">Zscaler</span></div>
+    </div>
+  </div>
+
+  <div class="col gap-20 reveal rd3">
+    <div class="shead"><span class="snum">03</span><span class="stitle">ZERO TRUST ET LES METIERS SISR</span><div class="sline"></div></div>
+    <div class="col gap-12">
+      <div class="ac">
+        <div class="am"><span class="adate">Decembre 2025</span><span class="asrc">// lockself.com + ANSSI</span></div>
+        <div class="atitle">Les outils concrets : AD, VLAN, Palo Alto, GLPI</div>
+        <p class="abody">Mettre en place le Zero Trust ne signifie pas tout racheter. Les techniciens SISR travaillent deja avec les briques fondamentales :<br/><br/>-- <strong style="color:#00ff41;">Active Directory + MFA</strong> : verification d'identite a chaque acces sensible<br/>-- <strong style="color:#00ff41;">Micro-segmentation VLAN</strong> : isoler les environnements par service<br/>-- <strong style="color:#00ff41;">Pare-feu NGFW Palo Alto</strong> : filtrage applicatif et controle des flux entre segments<br/>-- <strong style="color:#00ff41;">GLPI + supervision</strong> : inventaire continu et traitement des incidents</p>
+        <div class="atags"><span class="ct">Active Directory</span><span class="ct">VLAN</span><span class="ct">Palo Alto</span><span class="ct">MFA</span><span class="ct">GLPI</span></div>
+      </div>
+      <div class="ac">
+        <div class="am"><span class="adate">Aout 2025</span><span class="asrc">// arescom.fr</span></div>
+        <div class="atitle">Zero Trust pour les PME : indispensable en 2025</div>
+        <p class="abody">En 2024, plus de 60% des cyberattaques en France ont vise des PME (ANSSI). Avec le teletravail devenu norme, les frontieres reseau ont disparu. Une PME peut commencer progressivement : renforcer l'authentification, puis segmenter le reseau, puis mettre en place une supervision continue.</p>
+        <div class="atags"><span class="ct">PME</span><span class="ct">ANSSI</span><span class="ct">Teletravail</span><span class="ct">Segmentation</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col gap-20 reveal rd4">
+    <div class="shead"><span class="snum">04</span><span class="stitle">PERSPECTIVES 2026</span><div class="sline"></div></div>
+    <div class="ac">
+      <div class="am"><span class="adate">Janvier 2026</span><span class="asrc">// SecurityWeek - Cyber Insights 2026</span></div>
+      <div class="atitle">Zero Trust 2026 : de concept a architecture operationnelle</div>
+      <p class="abody">En 2026, le Zero Trust n'est plus un buzzword mais une realite operationnelle. Les experts s'accordent : "l'ere de la confiance implicite se termine en 2025". Les orga avant-gardistes reconnaissent l'identite comme le nouveau perimetre.<br/><br/>Defi principal : l'heritage. 48% des entreprises signalent des difficultes a integrer le Zero Trust dans des environnements hybrides. La transition est un voyage quotidien, pas une destination.</p>
+      <div class="atags"><span class="ct">Zero Trust 2026</span><span class="ct">Architecture hybride</span><span class="ct">Identite</span><span class="ct">NIST</span></div>
+    </div>
+  </div>
+
+  <div class="tw reveal rd5">
+    <div class="ttb"><div class="td tdr"></div><div class="td tdy"></div><div class="td tdg"></div><span class="ttitle">conclusion.sh</span></div>
+    <div class="tbody col gap-10">
+      <p class="psub prompt">Analyse terminee.</p>
+      <p class="psub" style="color:rgba(0,255,65,0.45);">$ echo "Ce que j'en retiens en tant qu'etudiant SISR"</p>
+      <div class="cline"></div>
+      <p class="abody" style="margin-top:4px;">Le Zero Trust est directement lie a ce que j'apprends et pratique en BTS SIO SISR. Active Directory, VLANs, pare-feux Palo Alto, GLPI : ce sont exactement les briques qui composent une architecture Zero Trust reelle. Comprendre ce modele aujourd'hui me prepare aux enjeux de securite reseau que je rencontrerai en entreprise. La question n'est plus "faut-il faire du Zero Trust ?" mais "comment le mettre en oeuvre avec les outils qu'on a deja ?"</p>
+      <p class="psub" style="margin-top:8px;color:rgba(0,255,65,0.45);">$ <span class="cursor">_</span></p>
+    </div>
+  </div>
+
+</div>
+</main>
+<footer style="position:relative;z-index:1;display:flex;justify-content:center;padding:16px 24px;">
+  <div class="footer-inner" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:720px;width:100%;padding:16px;border-radius:12px;">
+    <p>2026 / <a href="about.html">Djadje Traore</a> / Veille Techno BTS SIO SISR</p>
+    <a href="mailto:traoredjadje310@gmail.com" class="icon-btn" style="border-color:rgba(0,255,65,0.25);color:#00b32d;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9999px;border:1px solid;text-decoration:none;transition:color .15s;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>
