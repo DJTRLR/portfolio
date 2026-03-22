@@ -6,8 +6,124 @@
   <title>Competences - Djadje Traore</title>
   <link rel="stylesheet" href="tokens.css"/>
   <style>
-    #bg { position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none; }
-    .mask-top,.mask-bottom,nav.pill,main,footer { position:relative;z-index:1; }
+    #bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+    .mask-top,.mask-bottom,nav.pill,main,footer{position:relative;z-index:1;}
+
+    /* ── SKILL CARDS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(22,22,22,0.7);
+      border: 1px solid var(--neutral-border-medium);
+      border-radius: var(--radius-l);
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      backdrop-filter: blur(8px);
+      transition: border-color var(--transition-micro-medium), transform var(--transition-macro-medium);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--brand-solid), transparent);
+      opacity: 0;
+      transition: opacity var(--transition-macro-medium);
+    }
+    .skill-card:hover { border-color: var(--neutral-border-strong); transform: translateY(-3px); }
+    .skill-card:hover::before { opacity: 1; }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .skill-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--radius-m);
+      background: var(--brand-alpha-weak);
+      border: 1px solid var(--brand-border-weak);
+      display: grid; place-items: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    .skill-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--neutral-on-background-strong);
+    }
+    .skill-desc {
+      font-size: 0.85rem;
+      color: var(--neutral-on-background-weak);
+      line-height: 1.6;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    /* ── PROGRESS BARS ── */
+    .skill-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .skill-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .skill-bar-name { font-size: 0.82rem; font-weight: 500; color: var(--neutral-on-background-medium); }
+    .skill-bar-level { font-size: 0.75rem; color: var(--neutral-on-background-weak); }
+    .skill-bar-track {
+      height: 4px;
+      background: var(--neutral-alpha-medium);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(to right, var(--brand-solid), rgba(6,182,212,0.6));
+      animation: growBar 1s cubic-bezier(0.16,1,0.3,1) both;
+      animation-delay: var(--delay, 0s);
+    }
+    @keyframes growBar { from { width: 0 !important; } }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-on-background-medium);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 40px;
+      height: 1px;
+      background: var(--brand-border-medium);
+    }
   </style>
 </head>
 <body>
@@ -23,33 +139,175 @@
   <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="nav-label">Contact</span></a>
 </nav>
 <main>
-  <div class="column gap-40">
-    <div class="col gap-8 reveal reveal-d1"><h1 class="display-strong-l">Competences</h1><p class="body-default-xl">Outils et technologies pratiques en contexte professionnel.</p></div>
-    <div class="col gap-12 reveal reveal-d2"><h2 class="display-strong-s">Virtualisation</h2><p class="body-default-l">Deploiement et gestion d'environnements virtualises en production.</p><div class="skill-tags-row"><span class="tag">VMware vSphere</span><span class="tag">Hyper-V</span><span class="tag">VMs</span><span class="tag">Snapshots</span></div></div>
+  <div class="column gap-48">
+
+    <div class="col gap-8 reveal reveal-d1">
+      <h1 class="display-strong-l">Competences</h1>
+      <p class="body-default-xl">Outils et technologies pratiques en contexte professionnel.</p>
+    </div>
+
+    <!-- ── SECTION : Infrastructure ── -->
+    <div class="reveal reveal-d2">
+      <div class="section-label">Infrastructure &amp; Systemes</div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#128193;</div>
+            <span class="skill-title">Active Directory</span>
+          </div>
+          <p class="skill-desc">Administration du service d'annuaire Windows pour la gestion des identites, des groupes et des acces.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Gestion utilisateurs &amp; groupes</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">GPO &amp; politiques de securite</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Utilisateurs</span><span class="tag">GPO</span><span class="tag">Droits d'acces</span><span class="tag">Windows Server</span><span class="tag">LDAP</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#127381;</div>
+            <span class="skill-title">Serveurs</span>
+          </div>
+          <p class="skill-desc">Installation, configuration et mise en service de serveurs physiques et virtuels. Mise en place d'un serveur NTP au Lycee de Cachan.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Windows Server</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Serveur NTP</span><span class="skill-bar-level">Pratique</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Windows Server</span><span class="tag">NTP</span><span class="tag">Installation physique</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d2"><h2 class="display-strong-s">Sauvegarde et Restauration</h2><p class="body-default-l">Politiques de sauvegarde et restauration de systemes pour assurer la continuite de service.</p><div class="skill-tags-row"><span class="tag">Veeam Backup</span><span class="tag">Windows Server Backup</span><span class="tag">PRA</span></div></div>
+
+    <!-- ── SECTION : Réseau & Sécurité ── -->
+    <div class="reveal reveal-d3">
+      <div class="section-label">Reseau &amp; Securite</div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#128737;</div>
+            <span class="skill-title">Reseaux &amp; Firewall</span>
+          </div>
+          <p class="skill-desc">Configuration d'equipements reseau en production. Experience sur Palo Alto NGFW avec modules 40G a l'INA.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Palo Alto Networks (NGFW)</span><span class="skill-bar-level">Pratique</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">TCP/IP &amp; VLANs</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Palo Alto</span><span class="tag">NGFW</span><span class="tag">Modules 40G</span><span class="tag">TCP/IP</span><span class="tag">VLANs</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#127981;</div>
+            <span class="skill-title">GLPI &amp; Gestion de parc</span>
+          </div>
+          <p class="skill-desc">Suivi du parc informatique et gestion des demandes utilisateurs. Tickets, pannes, inventaire materiel.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">GLPI - Gestion des tickets</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Inventaire &amp; suivi de parc</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">GLPI</span><span class="tag">Tickets</span><span class="tag">Inventaire</span><span class="tag">ITIL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d3"><h2 class="display-strong-s">Active Directory</h2><p class="body-default-l">Administration du service d'annuaire Windows pour la gestion des identites et des acces.</p><div class="skill-tags-row"><span class="tag">Gestion utilisateurs</span><span class="tag">GPO</span><span class="tag">Droits d'acces</span><span class="tag">Windows Server</span><span class="tag">LDAP</span></div></div>
-    <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d3"><h2 class="display-strong-s">GLPI - Gestion de parc</h2><p class="body-default-l">Suivi du parc informatique et gestion des demandes. Tickets, pannes, inventaire materiel.</p><div class="skill-tags-row"><span class="tag">Tickets</span><span class="tag">Inventaire</span><span class="tag">Gestion de parc</span><span class="tag">ITIL</span></div></div>
-    <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d4"><h2 class="display-strong-s">Reseaux et Securite</h2><p class="body-default-l">Configuration d'equipements reseau en production. Palo Alto NGFW avec modules 40G a l'INA.</p><div class="skill-tags-row"><span class="tag">Palo Alto Networks</span><span class="tag">NGFW</span><span class="tag">Modules 40G</span><span class="tag">Firewall</span><span class="tag">TCP/IP</span></div></div>
-    <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d4"><h2 class="display-strong-s">Support et Deploiement</h2><p class="body-default-l">Deploiement de postes, installation d'OS et configuration logicielle. Assistance utilisateurs et maintenance preventive.</p><div class="skill-tags-row"><span class="tag">Deploiement postes</span><span class="tag">Assistance</span><span class="tag">Maintenance preventive</span><span class="tag">Windows 10/11</span></div></div>
-    <div class="line-h reveal"></div>
-    <div class="col gap-12 reveal reveal-d5"><h2 class="display-strong-s">Serveurs</h2><p class="body-default-l">Installation et configuration de serveurs. Mise en place d'un serveur NTP au Lycee de Cachan.</p><div class="skill-tags-row"><span class="tag">Windows Server</span><span class="tag">Serveur NTP</span><span class="tag">Installation physique</span></div></div>
+
+    <!-- ── SECTION : Support & Déploiement ── -->
+    <div class="reveal reveal-d4">
+      <div class="section-label">Support &amp; Deploiement</div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#128421;</div>
+            <span class="skill-title">Deploiement postes</span>
+          </div>
+          <p class="skill-desc">Deploiement de postes de travail en masse, installation d'OS, configuration logicielle et mise a jour du parc.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Deploiement &amp; configuration</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Windows 10 / 11</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Deploiement</span><span class="tag">Windows 10/11</span><span class="tag">Mises a jour</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">&#129309;</div>
+            <span class="skill-title">Assistance utilisateurs</span>
+          </div>
+          <p class="skill-desc">Support technique niveau 1 et 2. Maintenance preventive et corrective du parc materiel en environnement professionnel.</p>
+          <div class="skill-bar-row">
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Support N1 / N2</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%;--delay:0.1s;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-label"><span class="skill-bar-name">Maintenance preventive</span><span class="skill-bar-level">Maitrise</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%;--delay:0.2s;"></div></div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Help Desk</span><span class="tag">Reparation hardware</span><span class="tag">Maintenance</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </main>
 <footer>
   <div class="footer-inner">
     <p>2026 / <a href="about.html">Djadje Traore</a> / BTS SIO SISR</p>
     <div class="footer-icons">
-      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-      <a href="tel:0767908541" class="icon-btn" title="Tel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-      </a>
+      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      <a href="tel:0767908541" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></a>
     </div>
   </div>
 </footer>
