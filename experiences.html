@@ -6,8 +6,25 @@
   <title>Experiences - Djadje Traore</title>
   <link rel="stylesheet" href="tokens.css"/>
   <style>
-    #bg { position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none; }
-    .mask-top,.mask-bottom,nav.pill,main,footer { position:relative;z-index:1; }
+    #bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+    .mask-top,.mask-bottom,nav.pill,main,footer{position:relative;z-index:1;}
+    .wcard{display:flex;flex-direction:column;border:1px solid var(--neutral-border-medium);border-radius:var(--radius-l);background:rgba(22,22,22,0.6);backdrop-filter:blur(8px);overflow:hidden;transition:border-color var(--transition-micro-medium),transform var(--transition-macro-medium);}
+    .wcard:hover{border-color:var(--neutral-border-strong);transform:translateX(4px);}
+    .wthumb{height:180px;position:relative;overflow:hidden;border-bottom:1px solid var(--neutral-border-weak);}
+    .wthumb iframe{width:100%;height:100%;border:none;filter:saturate(0.3) brightness(0.5) hue-rotate(160deg);transition:filter var(--transition-macro-medium);}
+    .wcard:hover .wthumb iframe{filter:saturate(0.5) brightness(0.65) hue-rotate(160deg);}
+    .wthumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,17,23,0.7) 0%,transparent 60%);pointer-events:none;z-index:1;}
+    .wthumb-label{position:absolute;bottom:12px;left:14px;z-index:2;display:flex;align-items:center;gap:8px;}
+    .wthumb-label span{font-family:monospace;font-size:11px;color:rgba(6,182,212,0.9);letter-spacing:0.06em;background:rgba(13,17,23,0.75);padding:3px 8px;border-radius:4px;border:1px solid rgba(6,182,212,0.2);}
+    .wbody{padding:20px 24px 24px;display:flex;flex-direction:column;gap:10px;}
+    .wmeta{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;}
+    .wco{font-size:0.8rem;color:var(--brand-on-background-strong);font-weight:500;}
+    .wli{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px;}
+    .wli li{font-size:0.87rem;color:var(--neutral-on-background-medium);line-height:1.6;padding-left:16px;position:relative;}
+    .wli li::before{content:'-';position:absolute;left:0;color:var(--neutral-on-background-weak);}
+    .badge-new{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--brand-alpha-medium);border:1px solid var(--brand-alpha-strong);color:var(--brand-on-background-strong);}
+    .badge-new::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand-solid);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
   </style>
 </head>
 <body>
@@ -22,21 +39,6 @@
   <a href="veille.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg><span class="nav-label">Veille</span></a>
   <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="nav-label">Contact</span></a>
 </nav>
-<style>
-.wcard{display:flex;flex-direction:column;border:1px solid var(--neutral-border-medium);border-radius:var(--radius-l);background:rgba(22,22,22,0.6);backdrop-filter:blur(8px);overflow:hidden;transition:border-color var(--transition-micro-medium),transform var(--transition-macro-medium);}
-.wcard:hover{border-color:var(--neutral-border-strong);transform:translateX(4px);}
-.wthumb{height:160px;display:grid;place-items:center;font-size:2.8rem;border-bottom:1px solid var(--neutral-border-weak);position:relative;overflow:hidden;}
-.wglow{position:absolute;inset:0;opacity:0.08;background:radial-gradient(circle at 50% 50%,var(--brand-solid) 0%,transparent 70%);}
-.wbody{padding:20px 24px 24px;display:flex;flex-direction:column;gap:10px;}
-.wmeta{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;}
-.wco{font-size:0.8rem;color:var(--brand-on-background-strong);font-weight:500;}
-.wli{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px;}
-.wli li{font-size:0.87rem;color:var(--neutral-on-background-medium);line-height:1.6;padding-left:16px;position:relative;}
-.wli li::before{content:'-';position:absolute;left:0;color:var(--neutral-on-background-weak);}
-.badge-new{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--brand-alpha-medium);border:1px solid var(--brand-alpha-strong);color:var(--brand-on-background-strong);}
-.badge-new::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brand-solid);animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-</style>
 <main>
   <div class="column gap-40">
     <div class="col gap-8 reveal reveal-d1">
@@ -44,57 +46,74 @@
       <p class="body-default-xl">4 stages en entreprise et etablissements depuis 2023.</p>
     </div>
     <div class="col gap-20">
-
       <div class="wcard reveal reveal-d2">
-        <div class="wthumb" style="background:linear-gradient(135deg,#0d1a12,#111);">
-          <div class="wglow" style="background:radial-gradient(circle at 50% 50%,#22c55e 0%,transparent 70%);"></div>
-          <span style="position:relative;z-index:1;">&#128421;</span>
+        <div class="wthumb">
+          <img src="img-cachan.png" alt="Lycee Polyvalent de Cachan" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+          <div class="wthumb-overlay"></div>
+          <div class="wthumb-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(6,182,212,0.9)" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Lycee Polyvalent de Cachan</span>
+          </div>
         </div>
         <div class="wbody">
-          <div class="wmeta">
-            <div class="row gap-8 wrap"><span class="heading-strong-l" style="font-size:1.1rem;">Technicien informatique</span><span class="badge-new">Plus recent</span></div>
-            <span class="tag">Jan. - Fev. 2026</span>
-          </div>
+          <div class="wmeta"><div class="row gap-8 wrap"><span class="heading-strong-l" style="font-size:1.1rem;">Technicien informatique</span><span class="badge-new">Plus recent</span></div><span class="tag">Jan. - Fev. 2026</span></div>
           <p class="wco">Lycee Polyvalent de Cachan &middot; Cachan (94)</p>
           <p class="body-default-m">Stage au service informatique de l'etablissement. Support utilisateurs, maintenance des postes et mise en place d'infrastructure serveur.</p>
           <ul class="wli"><li>Assistance aux utilisateurs pour la resolution des problemes informatiques</li><li>Configuration et maintenance des postes de travail</li><li>Creation et configuration d'un serveur</li><li>Mise en place d'un serveur de temps (NTP)</li></ul>
           <div class="skill-tags-row mt-8"><span class="tag">Windows Server</span><span class="tag">NTP</span><span class="tag">Maintenance</span><span class="tag">Support</span></div>
         </div>
       </div>
-
       <div class="wcard reveal reveal-d3">
-        <div class="wthumb" style="background:linear-gradient(135deg,#0d1a1a,#111);"><div class="wglow"></div><span style="position:relative;z-index:1;">&#128421;</span></div>
+        <div class="wthumb">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1a1a,#111);display:grid;place-items:center;"><img src="img-merlin.png" alt="Merlin Informatique" style="height:120px;width:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(6,182,212,0.35));"/></div>
+          <div class="wthumb-overlay"></div>
+          <div class="wthumb-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(6,182,212,0.9)" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Merlin Informatique, Poissy</span>
+          </div>
+        </div>
         <div class="wbody">
           <div class="wmeta"><span class="heading-strong-l" style="font-size:1.1rem;">Support aux utilisateurs</span><span class="tag">Juin - Juil. 2025</span></div>
           <p class="wco">Merlin Informatique &middot; 1 Rue Michel Jeunet, Poissy (78)</p>
           <p class="body-default-m">Stage au sein d'une societe de services informatiques. Gestion du support en autonomie avec suivi rigoureux des incidents.</p>
-          <ul class="wli"><li>Assistance aux utilisateurs pour resoudre les problemes techniques</li><li>Gestion des tickets d'incidents et suivi des demandes</li></ul>
-          <div class="skill-tags-row mt-8"><span class="tag">Help Desk</span><span class="tag">ITSM</span><span class="tag">Support N1/N2</span></div>
+          <ul class="wli"><li>Assistance aux utilisateurs pour resoudre les problemes techniques</li><li>Gestion des tickets d'incidents et suivi des demandes d'assistance</li></ul>
+          <div class="skill-tags-row mt-8"><span class="tag">Help Desk</span><span class="tag">ITSM</span><span class="tag">Support N1/N2</span><span class="tag">Tickets</span></div>
         </div>
       </div>
-
       <div class="wcard reveal reveal-d4">
-        <div class="wthumb" style="background:linear-gradient(135deg,#0a1520,#111);"><div class="wglow"></div><span style="position:relative;z-index:1;">&#127760;</span></div>
+        <div class="wthumb">
+          <img src="img-ina.png" alt="INA - Institut National de l'Audiovisuel" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+          <div class="wthumb-overlay"></div>
+          <div class="wthumb-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(6,182,212,0.9)" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>INA - Bry-sur-Marne</span>
+          </div>
+        </div>
         <div class="wbody">
           <div class="wmeta"><span class="heading-strong-l" style="font-size:1.1rem;">Technicien en reseau</span><span class="tag">Nov. - Dec. 2023</span></div>
           <p class="wco">INA (Institut National de l'Audiovisuel) &middot; Val-de-Marne (94)</p>
-          <p class="body-default-m">Stage reseau dans l'institution de conservation du patrimoine audiovisuel. Environnement haute disponibilite.</p>
+          <p class="body-default-m">Stage reseau dans l'institution de conservation du patrimoine audiovisuel francais. Environnement haute disponibilite.</p>
           <ul class="wli"><li>Configuration de modules 40G sur equipements Palo Alto Networks (NGFW)</li><li>Installation et mise en service de serveurs physiques</li></ul>
-          <div class="skill-tags-row mt-8"><span class="tag">Palo Alto</span><span class="tag">Reseaux 40G</span><span class="tag">Serveurs</span></div>
+          <div class="skill-tags-row mt-8"><span class="tag">Palo Alto</span><span class="tag">Reseaux 40G</span><span class="tag">Serveurs</span><span class="tag">Datacenter</span></div>
         </div>
       </div>
-
       <div class="wcard reveal reveal-d5">
-        <div class="wthumb" style="background:linear-gradient(135deg,#150d1a,#111);"><div class="wglow" style="background:radial-gradient(circle at 50% 50%,#ef4444 0%,transparent 70%);"></div><span style="position:relative;z-index:1;">&#127963;</span></div>
+        <div class="wthumb">
+          <img src="img-arcueil.png" alt="Mairie d'Arcueil" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+          <div class="wthumb-overlay"></div>
+          <div class="wthumb-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(6,182,212,0.9)" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Mairie d'Arcueil</span>
+          </div>
+        </div>
         <div class="wbody">
           <div class="wmeta"><span class="heading-strong-l" style="font-size:1.1rem;">Help Desk - Technicien</span><span class="tag">Jan. - Avr. 2023</span></div>
           <p class="wco">Mairie d'Arcueil &middot; Avenue Paul Doumer, Arcueil (94)</p>
-          <p class="body-default-m">Premier stage en collectivite territoriale. Mise en place de processus ITSM pour le service informatique municipal.</p>
-          <ul class="wli"><li>Deploiement de postes de travail et mises a jour logicielles</li><li>Mise en place d'un systeme de gestion des tickets</li><li>Maintenance preventive du parc informatique</li></ul>
-          <div class="skill-tags-row mt-8"><span class="tag">Deploiement</span><span class="tag">GLPI</span><span class="tag">Maintenance</span></div>
+          <p class="body-default-m">Premier stage en collectivite territoriale. Prise en charge autonome des interventions et mise en place de processus ITSM.</p>
+          <ul class="wli"><li>Deploiement de postes de travail et mises a jour logicielles</li><li>Mise en place d'un systeme de gestion des tickets</li><li>Maintenance preventive du parc informatique municipal</li></ul>
+          <div class="skill-tags-row mt-8"><span class="tag">Deploiement</span><span class="tag">GLPI</span><span class="tag">Maintenance</span><span class="tag">Collectivite</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </main>
@@ -102,12 +121,8 @@
   <div class="footer-inner">
     <p>2026 / <a href="about.html">Djadje Traore</a> / BTS SIO SISR</p>
     <div class="footer-icons">
-      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-      <a href="tel:0767908541" class="icon-btn" title="Tel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-      </a>
+      <a href="mailto:traoredjadje310@gmail.com" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      <a href="tel:0767908541" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.8 19.8 0 01.12 1.23a2 2 0 012-.22h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></a>
     </div>
   </div>
 </footer>
