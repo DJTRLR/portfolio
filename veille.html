@@ -23,7 +23,7 @@
     .ntitle{font-size:0.93rem;font-weight:600;color:var(--neutral-on-background-strong);line-height:1.4;}
     .ntitle.lg{font-size:1.05rem;}
     .nbody{font-size:0.82rem;color:var(--neutral-on-background-medium);line-height:1.65;}
-    .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;}
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
     .stat-card{padding:14px;border:1px solid var(--neutral-border-medium);border-radius:var(--radius-m);background:var(--neutral-alpha-weak);}
     .stat-num{font-size:1.6rem;font-weight:700;letter-spacing:-0.04em;color:var(--brand-on-background-strong);line-height:1;}
     .stat-lbl{font-size:0.74rem;color:var(--neutral-on-background-weak);line-height:1.4;margin-top:3px;}
@@ -38,6 +38,12 @@
     .qblock p{font-size:0.88rem;color:var(--neutral-on-background-medium);font-style:italic;line-height:1.7;}
     .qblock cite{font-size:0.74rem;color:var(--neutral-on-background-weak);margin-top:5px;display:block;font-style:normal;}
     .sisr-box{background:var(--brand-alpha-weak);border:1px solid var(--brand-border-weak);border-radius:var(--radius-m);padding:18px 20px;}
+    .pilier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+    .pilier-card{background:rgba(22,22,22,0.6);border:1px solid var(--neutral-border-medium);border-radius:var(--radius-m);padding:18px;display:flex;flex-direction:column;gap:8px;backdrop-filter:blur(6px);transition:border-color var(--transition-micro-medium);}
+    .pilier-card:hover{border-color:var(--brand-border-medium);}
+    .pilier-num{font-family:monospace;font-size:0.72rem;color:var(--brand-on-background-medium);font-weight:600;letter-spacing:0.06em;}
+    .pilier-title{font-size:0.92rem;font-weight:600;color:var(--neutral-on-background-strong);}
+    .pilier-desc{font-size:0.78rem;color:var(--neutral-on-background-weak);line-height:1.55;}
     .sep{border:none;border-top:1px solid var(--neutral-border-weak);margin:0;}
     .sh{margin-bottom:18px;}
     .sh h2{font-size:1.2rem;font-weight:600;letter-spacing:-0.02em;color:var(--neutral-on-background-strong);}
@@ -78,91 +84,128 @@
   <a href="veille.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg><span class="nav-label">Veille</span></a>
   <a href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="nav-label">Contact</span></a>
 </nav>
+
 <main>
   <div class="column gap-48">
 
+    <!-- HEADER -->
     <div class="col gap-10 reveal reveal-d1">
-      <div class="row gap-8 wrap"><span class="tag">Veille technologique</span><span class="tag">Cybersecurite</span><span class="tag">Reseaux</span><span class="tag">Jan. 2025 - Mars 2026</span></div>
-      <h1 class="display-strong-l" style="max-width:560px;line-height:1.1;">Cybersecurite et infrastructure reseau : etat des lieux 2025-2026</h1>
-      <p class="body-default-xl" style="max-width:520px;">Veille menee dans le cadre du BTS SIO option SISR, sur les evolutions des menaces, des architectures et de la reglementation.</p>
+      <div class="row gap-8 wrap">
+        <span class="tag">Veille technologique</span>
+        <span class="tag">BTS SIO SISR</span>
+        <span class="tag">Jan. 2025 - Mars 2026</span>
+      </div>
+      <h1 class="display-strong-l" style="max-width:580px;line-height:1.1;">L'architecture Zero Trust : nouvelle norme de securite des reseaux d'entreprise</h1>
+      <p class="body-default-xl" style="max-width:520px;">Veille menee dans le cadre du BTS SIO option SISR sur l'adoption du modele Zero Trust en remplacement de la securite perimetrique traditionnelle.</p>
     </div>
 
     <hr class="sep reveal">
 
+    <!-- METHODOLOGIE -->
     <div class="reveal reveal-d2">
-      <div class="sh"><h2>Methodologie de veille</h2><p>Plusieurs canaux complementaires utilises en parallele</p></div>
+      <div class="sh"><h2>Methodologie de veille</h2><p>Outils actifs et passifs utilises en parallele</p></div>
       <div class="tool-grid">
-        <div class="tool-card"><div class="tool-name">Alertes Google</div><div class="tool-desc">Mots-cles : "cybersecurite reseau", "Zero Trust", "NIS2" - email hebdomadaire automatique</div></div>
-        <div class="tool-card"><div class="tool-name">Flux RSS (Feedly)</div><div class="tool-desc">Agregation des flux ANSSI, CERT-FR, LeMagIT, IT Social, ZDNet France - lecture quotidienne</div></div>
-        <div class="tool-card"><div class="tool-name">Presse specialisee</div><div class="tool-desc">LeMagIT, IT Social, 01net Pro, Silicon.fr - articles de fond et analyses d'experts</div></div>
-        <div class="tool-card"><div class="tool-name">Sites institutionnels</div><div class="tool-desc">ANSSI, CERT-FR, CNIL, Cybermalveillance.gouv.fr - rapports officiels et alertes securite</div></div>
-        <div class="tool-card"><div class="tool-name">Reseaux sociaux</div><div class="tool-desc">LinkedIn (experts secu), X/Twitter (#CyberSec #SISR), YouTube (chaines reseau et securite)</div></div>
-        <div class="tool-card"><div class="tool-name">Forums et communautes</div><div class="tool-desc">Reddit r/netsec, r/sysadmin, OpenClassrooms, Stack Exchange Network Engineering</div></div>
-        <div class="tool-card"><div class="tool-name">Cercles d'experts</div><div class="tool-desc">Echanges avec tuteurs de stage (INA, Lycee Cachan), enseignants BTS SIO, groupes Discord SISR</div></div>
-        <div class="tool-card"><div class="tool-name">Rapports et barometres</div><div class="tool-desc">Barometre CESIN 2026, Rapport Ivanti 2026, Panorama ANSSI 2025 - donnees chiffrees annuelles</div></div>
+        <div class="tool-card"><div class="tool-name">Alertes Google</div><div class="tool-desc">Mots-cles : "Zero Trust", "architecture ZTA", "ZTNA 2025", "Zero Trust France" - email hebdomadaire automatique</div></div>
+        <div class="tool-card"><div class="tool-name">Flux RSS (Feedly)</div><div class="tool-desc">Flux ANSSI, CERT-FR, LeMagIT, IT Social, ZDNet France - aspiration automatique quotidienne</div></div>
+        <div class="tool-card"><div class="tool-name">Presse specialisee</div><div class="tool-desc">LeMagIT, IT Social, Silicon.fr, ZDNet France - articles de fond et analyses d'experts securite</div></div>
+        <div class="tool-card"><div class="tool-name">Sites institutionnels</div><div class="tool-desc">ANSSI (guide Zero Trust 2025), NIST SP 800-207, Microsoft Security, Wiz Academy</div></div>
+        <div class="tool-card"><div class="tool-name">Reseaux sociaux</div><div class="tool-desc">LinkedIn (RSSI, architectes securite), X/Twitter #ZeroTrust #ZTNA #CyberSec</div></div>
+        <div class="tool-card"><div class="tool-name">Forums dedies</div><div class="tool-desc">Reddit r/netsec, r/sysadmin - retours d'experience terrain sur les deployments Zero Trust</div></div>
+        <div class="tool-card"><div class="tool-name">Cercles d'experts</div><div class="tool-desc">Tuteurs de stage INA et Lycee Cachan, enseignants BTS SIO, groupes Discord SISR</div></div>
+        <div class="tool-card"><div class="tool-name">Rapports annuels</div><div class="tool-desc">Rapport Gartner 2025, Etude Ponemon 2024 State of Zero Trust, guide ANSSI ZTA 2025</div></div>
       </div>
     </div>
 
     <hr class="sep reveal">
 
+    <!-- DEFINITION ET CONTEXTE -->
     <div class="reveal reveal-d2">
-      <div class="sh"><h2>Aspiration de flux - articles collectes</h2><p>Resultats reels issus des flux RSS agreges via Feedly - Jan. 2025 - Mars 2026</p></div>
+      <div class="sh"><h2>Qu'est-ce que le Zero Trust ?</h2><p>Definition et contexte d'emergence</p></div>
+      <div class="col gap-16">
+        <p class="body-default-l">Le Zero Trust est un modele de securite base sur un principe radical : <strong style="color:var(--neutral-on-background-strong);font-weight:500;">aucun utilisateur, aucun appareil, aucune application ne doit etre considere comme fiable par defaut</strong>, meme s'il se trouve a l'interieur du reseau de l'entreprise. Chaque acces doit etre authentifie, autorise et continuellement valide.</p>
+        <div class="qblock">
+          <p>Ne jamais faire confiance, toujours verifier. Ce paradigme, theorise par John Kindervag chez Forrester en 2010, a mis plus d'une decennie a s'imposer. C'est veritablement en 2024-2026, sous l'effet combine de NIS2 et de la recrudescence des ransomwares, que le Zero Trust est passe du concept au deploiement operationnel.</p>
+          <cite>- Tech Insider, mars 2026</cite>
+        </div>
+        <p class="body-default-l">L'ancien modele dit "chateau avec douves" supposait que tout ce qui etait a l'interieur du reseau etait de confiance. Avec le <strong style="color:var(--neutral-on-background-strong);font-weight:500;">teletravail generalise, le cloud hybride et les acces tiers</strong>, ce modele est devenu obsolete. En 2025, 67% des travailleurs operent a distance ou en mode hybride, effacant la notion de reseau interne securise.</p>
+      </div>
+    </div>
+
+    <hr class="sep reveal">
+
+    <!-- CHIFFRES CLES -->
+    <div class="reveal reveal-d2">
+      <div class="sh"><h2>Chiffres cles 2025-2026</h2><p>Sources : Gartner, Ponemon Institute, ANSSI, Tech Insider</p></div>
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num">61%</div><div class="stat-lbl">des organisations ont engage leur parcours Zero Trust en 2024 (Ponemon)</div></div>
+        <div class="stat-card"><div class="stat-num">10%</div><div class="stat-lbl">des grandes entreprises auront un ZTA mature d'ici 2026 (Gartner)</div></div>
+        <div class="stat-card"><div class="stat-num">15 000</div><div class="stat-lbl">entites en France concernees par NIS2, qui pousse vers le Zero Trust</div></div>
+        <div class="stat-card"><div class="stat-num">67%</div><div class="stat-lbl">des travailleurs en mode hybride, rendant le modele perimetrique obsolete</div></div>
+        <div class="stat-card"><div class="stat-num">10M€</div><div class="stat-lbl">amende max pour non-conformite NIS2 (entites essentielles)</div></div>
+        <div class="stat-card"><div class="stat-num">2025</div><div class="stat-lbl">guide ANSSI publie sur la mise en oeuvre du Zero Trust dans les administrations</div></div>
+      </div>
+    </div>
+
+    <hr class="sep reveal">
+
+    <!-- FLUX RSS -->
+    <div class="reveal reveal-d3">
+      <div class="sh"><h2>Aspiration de flux RSS - articles collectes</h2><p>Resultats issus des flux agreges via Feedly sur le sujet Zero Trust - Jan. 2025 - Mars 2026</p></div>
       <div class="col gap-20">
 
         <div>
           <div class="rss-header">
-            <div class="col gap-2"><div class="rss-name">CERT-FR - Alertes et Rapports</div><div class="rss-url">cert.ssi.gouv.fr/alerte - cert.ssi.gouv.fr/cti</div></div>
+            <div class="col gap-2"><div class="rss-name">ANSSI - Guides et Publications</div><div class="rss-url">ssi.gouv.fr / cyber.gouv.fr</div></div>
             <span class="rss-live">Flux RSS actif</span>
           </div>
           <div class="rss-items">
-            <a href="https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-002/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-rapport">Rapport CTI</span><span class="rdate">11 mars 2026 - CERTFR-2026-CTI-002</span></div>
-              <div class="rtitle">Panorama de la cybermenace 2025</div>
-              <div class="rbody">En 2025, les frontieres entre acteurs etatiques et cybercriminels ont continue de s'eroder. Les attaquants exploitent toujours des vulnerabilites massivement et montrent un interet croissant pour les outils d'IA. La menace cyber est devenue systemique.</div>
-            </a>
-            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-alerte">Alerte</span><span class="rdate">5 dec. 2025 - CERTFR-2025-ALE-014</span></div>
-              <div class="rtitle">Multiples vulnerabilites dans Ivanti Endpoint Manager Mobile</div>
-              <div class="rbody">Le CERT-FR signale l'exploitation active de la vulnerabilite CVE-2025-55182. Les serveurs exposes apres publication des preuves de concept doivent etre consideres comme compromis.</div>
-            </a>
-            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-alerte">Alerte</span><span class="rdate">25 sept. 2025 - CERTFR-2025-ALE-013</span></div>
-              <div class="rtitle">Multiples vulnerabilites dans Cisco ASA et FTD</div>
-              <div class="rbody">Vulnerabilites critiques affectant les pare-feux Cisco ASA et Firepower Threat Defense - equipements tres repandus en entreprise. Mise a jour urgente recommandee.</div>
+            <a href="https://cyber.gouv.fr/" target="_blank" class="rss-item">
+              <div class="rss-meta"><span class="rtype t-guide">Guide</span><span class="rdate">2025 - ANSSI</span></div>
+              <div class="rtitle">Guide de mise en oeuvre du Zero Trust dans les administrations</div>
+              <div class="rbody">L'ANSSI publie un guide pratique dedie aux administrations publiques pour deployer une architecture Zero Trust. Il couvre la segmentation, la gestion des identites et la surveillance continue des acces.</div>
             </a>
             <a href="https://cyber.gouv.fr/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-guide">Guide</span><span class="rdate">17 mars 2026 - ANSSI</span></div>
+              <div class="rss-meta"><span class="rtype t-rapport">Referentiel</span><span class="rdate">17 mars 2026 - ANSSI</span></div>
               <div class="rtitle">Publication du Referentiel Cyber France (ReCyF) - NIS2</div>
-              <div class="rbody">L'ANSSI met a disposition le ReCyF listant les mesures recommandees pour atteindre les objectifs de securite fixes par NIS2. Correspond a l'article 14 du projet de loi Resilience.</div>
+              <div class="rbody">Le ReCyF liste les mesures obligatoires NIS2, dont la segmentation reseau, la gestion des identites et la surveillance continue - trois piliers directement alignes avec le Zero Trust.</div>
             </a>
           </div>
         </div>
 
         <div>
           <div class="rss-header">
-            <div class="col gap-2"><div class="rss-name">LeMagIT - Cybersecurite</div><div class="rss-url">lemagit.fr/actualites/Securite</div></div>
+            <div class="col gap-2"><div class="rss-name">LeMagIT - Securite et Reseaux</div><div class="rss-url">lemagit.fr/actualites/Securite</div></div>
             <span class="rss-live">Flux RSS actif</span>
           </div>
           <div class="rss-items">
-            <a href="https://www.lemagit.fr/actualites/366639998/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-analyse">Analyse</span><span class="rdate">Mars 2026 - LeMagIT</span></div>
-              <div class="rtitle">Cybermenaces 2025 : erosion des frontieres et maree haute persistante</div>
-              <div class="rbody">Bilan paradoxal : baisse de 18% des signalements mais stabilite preoccupante des incidents confirmes. En 2025, 29% des vulnerabilites ont ete exploitees le jour meme de leur publication.</div>
+            <a href="https://www.lemagit.fr/" target="_blank" class="rss-item">
+              <div class="rss-meta"><span class="rtype t-analyse">Analyse</span><span class="rdate">2025 - LeMagIT</span></div>
+              <div class="rtitle">Zero Trust : de la theorie a la pratique en entreprise</div>
+              <div class="rbody">De nombreuses entreprises peinent a implementer le Zero Trust au-dela du marketing. Le vrai defi est la micro-segmentation et la gestion des identites non-humaines (bots, API, IoT). Les NGFW comme Palo Alto sont au coeur des deployments.</div>
             </a>
             <a href="https://www.lemagit.fr/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-actu">Actualite</span><span class="rdate">17 oct. 2025 - LeMagIT - Cyberhebdo</span></div>
-              <div class="rtitle">Ransomware sur 80% des lycees des Hauts-de-France (groupe Qilin)</div>
-              <div class="rbody">Une attaque par rancongiciel a touche pres de 80% des lycees publics de la region. Les cours ont continue malgre la suspension de l'acces internet. Cellule de crise activee.</div>
+              <div class="rss-meta"><span class="rtype t-actu">Actualite</span><span class="rdate">Fev. 2025 - LeMagIT</span></div>
+              <div class="rtitle">Avantages et inconvenients de l'IA dans la securite Zero Trust</div>
+              <div class="rbody">L'IA renforce la detection comportementale dans les architectures Zero Trust (UEBA, SIEM), mais introduit de nouveaux risques. 70% des grandes organisations prevoir d'integrer l'IA dans leur ZTA d'ici 2027.</div>
             </a>
-            <a href="https://www.lemagit.fr/" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-actu">Actualite</span><span class="rdate">12 dec. 2025 - LeMagIT - Cyberhebdo</span></div>
-              <div class="rtitle">Un EHPAD frappe par rancongiciel - chiffrement de fichiers et fuite potentielle</div>
-              <div class="rbody">L'EHPAD de la Residence du Parc victime d'une cyberattaque par ransomware, entrainant le chiffrement de fichiers et une potentielle exfiltration de donnees personnelles de residents.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="rss-header">
+            <div class="col gap-2"><div class="rss-name">IT Social / Tech Insider - Infrastructure</div><div class="rss-url">itsocial.fr / tech-insider.org</div></div>
+            <span class="rss-live">Flux RSS actif</span>
+          </div>
+          <div class="rss-items">
+            <a href="https://tech-insider.org/fr/architecture-zero-trust-pourquoi-chaque-entreprise-en-a-besoin-en-2026/" target="_blank" class="rss-item">
+              <div class="rss-meta"><span class="rtype t-analyse">Analyse</span><span class="rdate">Mars 2026 - Tech Insider</span></div>
+              <div class="rtitle">Architecture Zero Trust : pourquoi chaque entreprise en a besoin en 2026</div>
+              <div class="rbody">Le Zero Trust n'est plus reserve aux grandes entreprises. Avec NIS2 et la sophistication des attaques, c'est devenu une necessite pour toute organisation traitant des donnees sensibles. Le Campus Cyber federe l'ecosysteme francais autour de ces pratiques.</div>
             </a>
-            <a href="https://www.lemagit.fr/conseil/Avantages-et-inconvenients-de-lIA-dans-la-cybersecurite" target="_blank" class="rss-item">
-              <div class="rss-meta"><span class="rtype t-analyse">Analyse</span><span class="rdate">11 fev. 2025 - LeMagIT</span></div>
-              <div class="rtitle">Avantages et inconvenients de l'IA dans la cybersecurite</div>
-              <div class="rbody">L'IA ameliore la detection des menaces mais introduit de nouveaux vecteurs d'attaque. 70% des grandes organisations prevoir d'investir dans des outils de securite augmentes a l'IA d'ici 2027.</div>
+            <a href="https://www.lockself.com/blog/zero-trust-definition-principes-cybersecurite" target="_blank" class="rss-item">
+              <div class="rss-meta"><span class="rtype t-guide">Guide</span><span class="rdate">Dec. 2025 - LockSelf</span></div>
+              <div class="rtitle">Zero Trust en entreprise : comment l'integrer sans bloquer la continuite d'activite</div>
+              <div class="rbody">Deploiement progressif par zones fonctionnelles (RH, IT, production). L'approche commence par la cartographie des actifs critiques, puis le renforcement de l'authentification, puis la micro-segmentation reseau.</div>
             </a>
           </div>
         </div>
@@ -172,62 +215,117 @@
 
     <hr class="sep reveal">
 
+    <!-- 5 PILIERS -->
     <div class="reveal reveal-d3">
-      <div class="sh"><h2>Chiffres cles 2025-2026</h2><p>Sources : CESIN, ANSSI, Ivanti, Cybermalveillance.gouv.fr</p></div>
-      <div class="stat-row">
-        <div class="stat-card"><div class="stat-num">40%</div><div class="stat-lbl">des entreprises francaises ont subi une cyberattaque reussie en 2025</div></div>
-        <div class="stat-card"><div class="stat-num">4x</div><div class="stat-lbl">plus d'incidents signales a l'ANSSI vs 2021</div></div>
-        <div class="stat-card"><div class="stat-num">83%</div><div class="stat-lbl">des organisations augmentent leur budget cybersecurite en 2026</div></div>
-        <div class="stat-card"><div class="stat-num">29%</div><div class="stat-lbl">des vulnerabilites exploitees le jour de leur publication en 2025</div></div>
-        <div class="stat-card"><div class="stat-num">17 jan.</div><div class="stat-lbl">2025 : entree en vigueur du reglement DORA pour le secteur financier</div></div>
-        <div class="stat-card"><div class="stat-num">1,6M</div><div class="stat-lbl">donnees compromises - France Travail / Missions Locales, fin 2025</div></div>
-      </div>
-    </div>
-
-    <hr class="sep reveal">
-
-    <div class="reveal reveal-d3">
-      <div class="sh"><h2>Chronologie des faits marquants</h2><p>Janvier 2025 - Mars 2026</p></div>
-      <div class="tl">
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Janvier 2025</div><div class="tl-title">Entree en vigueur du reglement DORA</div><div class="tl-body">Obligatoire pour toutes les entites financieres de l'UE. Impose des exigences strictes sur les sauvegardes, les PRA et les tests de resilience - competences directement liees a la formation SISR.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Mars 2025</div><div class="tl-title">ANSSI - Alerte critique sur les equipements reseau exposes</div><div class="tl-body">Vulnerabilites critiques affectant des equipements reseau (VPN, pare-feux) non mis a jour. Des milliers d'organisations francaises concernees, dont des collectivites locales.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Octobre 2025</div><div class="tl-title">Ransomware Qilin - 80% des lycees Hauts-de-France touches</div><div class="tl-body">Attaque massive sur les etablissements scolaires de la region. Illustration directe des risques pour les infrastructures IT des etablissements d'enseignement.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Fin 2025</div><div class="tl-title">France Travail - 1,6 million de jeunes exposes</div><div class="tl-body">Cyberattaque compromettant les donnees personnelles de 1,6 million de jeunes suivis par les Missions Locales. Consequence d'une infrastructure insuffisamment segmentee.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Fevrier 2026</div><div class="tl-title">Barometre CESIN 2026 - recul des incidents, hausse de la sophistication</div><div class="tl-body">40% d'entreprises touchees (vs 47% en 2024). Les attaques sont plus ciblees, plus automatisees et plus difficiles a detecter sans outils modernes de SOC.</div></div>
-        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Mars 2026</div><div class="tl-title">NIS2 - transposition francaise et publication du ReCyF</div><div class="tl-body">L'ANSSI publie le Referentiel Cyber France. La directive elargit le perimetre a environ 15 000 nouvelles entites dont des collectivites et etablissements d'enseignement.</div></div>
-      </div>
-    </div>
-
-    <hr class="sep reveal">
-
-    <div class="reveal reveal-d4">
-      <div class="sh"><h2>Focus : l'architecture Zero Trust s'impose</h2><p>Analyse synthetique - sources croisees</p></div>
-      <div class="col gap-14">
-        <p class="body-default-l">Le modele <strong style="color:var(--neutral-on-background-strong);font-weight:500;">Zero Trust</strong> ("ne jamais faire confiance, toujours verifier") est devenu la strategie de reference en 2025-2026. Il repond a la disparition du perimetre reseau traditionnel : avec le cloud, le teletravail et les objets connectes, il n'y a plus de "dedans" et de "dehors".</p>
-        <div class="qblock"><p>Le Zero Trust n'est pas un produit que l'on achete. C'est une philosophie qui se traduit par une refonte complete de la facon dont on pense l'acces aux ressources IT.</p><cite>- ZDNet France, juillet 2025</cite></div>
-        <p class="body-default-l">L'implementation repose sur la <strong style="color:var(--neutral-on-background-strong);font-weight:500;">micro-segmentation reseau</strong>, l'<strong style="color:var(--neutral-on-background-strong);font-weight:500;">authentification forte</strong> (MFA/FIDO2), la <strong style="color:var(--neutral-on-background-strong);font-weight:500;">surveillance continue</strong> (SIEM, EDR) et le principe du <strong style="color:var(--neutral-on-background-strong);font-weight:500;">moindre privilege</strong>.</p>
-        <div class="sisr-box">
-          <p class="body-default-s" style="font-weight:600;color:var(--brand-on-background-strong);margin-bottom:8px;">Lien direct avec ma formation SISR et mes stages</p>
-          <p class="body-default-m" style="margin:0;">La <strong style="color:var(--neutral-on-background-strong);">gestion AD</strong> (GPO, groupes) est le socle du controle d'acces Zero Trust. La <strong style="color:var(--neutral-on-background-strong);">configuration Palo Alto NGFW</strong> a l'INA correspond exactement aux composants de micro-segmentation. La <strong style="color:var(--neutral-on-background-strong);">sauvegarde Veeam</strong> repond aux exigences NIS2 et DORA. Le <strong style="color:var(--neutral-on-background-strong);">serveur NTP</strong> mis en place au Lycee de Cachan est prerequis pour la correlation des logs de securite.</p>
-          <div class="skill-tags-row" style="margin-top:10px;"><span class="tag">Active Directory</span><span class="tag">Palo Alto NGFW</span><span class="tag">Veeam / PRA</span><span class="tag">Serveur NTP</span><span class="tag">Zero Trust</span><span class="tag">NIS2</span></div>
+      <div class="sh"><h2>Les 5 piliers du Zero Trust</h2><p>Selon la CISA (Cybersecurity and Infrastructure Security Agency) et le NIST SP 800-207</p></div>
+      <div class="pilier-grid">
+        <div class="pilier-card">
+          <div class="pilier-num">PILIER 01</div>
+          <div class="pilier-title">Identite</div>
+          <div class="pilier-desc">Authentification forte de chaque utilisateur. MFA, FIDO2, passwordless, gestion des acces privilegies (PAM). Active Directory en est la brique centrale.</div>
+        </div>
+        <div class="pilier-card">
+          <div class="pilier-num">PILIER 02</div>
+          <div class="pilier-title">Appareils</div>
+          <div class="pilier-desc">Verification de l'etat de sante de chaque equipement avant acces. Postes non conformes = acces refuse, quel que soit l'utilisateur.</div>
+        </div>
+        <div class="pilier-card">
+          <div class="pilier-num">PILIER 03</div>
+          <div class="pilier-title">Reseau</div>
+          <div class="pilier-desc">Micro-segmentation : le reseau est divise en zones isolees. Un attaquant qui entre dans une zone ne peut pas se deplacer lateralement. Les NGFW comme Palo Alto en sont l'outil cle.</div>
+        </div>
+        <div class="pilier-card">
+          <div class="pilier-num">PILIER 04</div>
+          <div class="pilier-title">Applications</div>
+          <div class="pilier-desc">Acces specifique par application (ZTNA) au lieu d'un VPN qui donne acces a tout le reseau. Chaque app verifie independamment l'autorisation.</div>
+        </div>
+        <div class="pilier-card">
+          <div class="pilier-num">PILIER 05</div>
+          <div class="pilier-title">Donnees</div>
+          <div class="pilier-desc">Classification et chiffrement des donnees. Acces base sur le moindre privilege : chaque utilisateur n'accede qu'aux donnees strictement necessaires a sa mission.</div>
         </div>
       </div>
     </div>
 
     <hr class="sep reveal">
 
-    <div class="reveal reveal-d5 col gap-14">
-      <div class="sh"><h2>Sources utilisees</h2><p>Classees par type de canal</p></div>
+    <!-- TIMELINE -->
+    <div class="reveal reveal-d4">
+      <div class="sh"><h2>Chronologie de l'adoption en France</h2><p>Janvier 2025 - Mars 2026</p></div>
+      <div class="tl">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Janvier 2025</div><div class="tl-title">Entree en vigueur du reglement DORA - accelere le Zero Trust dans la finance</div><div class="tl-body">DORA impose la resilience operationnelle numerique au secteur financier : sauvegardes testees, plans de reprise, gestion stricte des acces tiers. Ces exigences poussent directement vers une architecture Zero Trust.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2025</div><div class="tl-title">L'ANSSI publie son guide Zero Trust pour les administrations</div><div class="tl-body">Premier guide officiel francais dedie au deploiement du Zero Trust dans le secteur public. Il normalise les pratiques et accelere l'adoption dans les collectivites et etablissements publics.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2025</div><div class="tl-title">61% des organisations engagees dans un parcours Zero Trust (Ponemon)</div><div class="tl-body">L'etude annuelle de l'Institut Ponemon montre que la majorite des grandes organisations mondiales ont amorce leur transition Zero Trust, contre moins de 30% en 2021.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2025 - 2026</div><div class="tl-title">NIS2 : 15 000 entites francaises contraintes de renforcer leur securite reseau</div><div class="tl-body">La directive NIS2 transposee en droit francais oblige un nombre massif d'organisations a mettre en oeuvre segmentation, gestion des identites et surveillance continue - tous des composants du Zero Trust.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Mars 2026</div><div class="tl-title">Zero Trust : architecture de securite par defaut en entreprise (Gartner)</div><div class="tl-body">Gartner confirme que le Zero Trust est devenu le modele de reference. Les technologies phares : IAM, ZTNA, microsegmentation par NGFW, SIEM couple a l'IA pour la detection comportementale.</div></div>
+      </div>
+    </div>
+
+    <hr class="sep reveal">
+
+    <!-- LIEN SISR -->
+    <div class="reveal reveal-d4">
+      <div class="sh"><h2>Lien avec ma formation SISR et mes stages</h2><p>Les competences que j'ai pratiquees sont au coeur du Zero Trust</p></div>
+      <div class="sisr-box">
+        <p class="body-default-m" style="margin-bottom:12px;color:var(--neutral-on-background-medium);">Chaque competence acquise en stage correspond directement a un pilier du Zero Trust :</p>
+        <div class="col gap-10">
+          <p class="body-default-m" style="margin:0;"><strong style="color:var(--neutral-on-background-strong);">Active Directory (GPO, utilisateurs, droits d'acces)</strong> &rarr; Pilier Identite. C'est la brique centrale de la gestion des acces dans toute architecture Zero Trust Microsoft.</p>
+          <div class="line-h"></div>
+          <p class="body-default-m" style="margin:0;"><strong style="color:var(--neutral-on-background-strong);">Palo Alto NGFW 40G a l'INA</strong> &rarr; Pilier Reseau. Les firewalls NGFW Palo Alto sont l'outil de micro-segmentation de reference dans les deployments Zero Trust enterprise.</p>
+          <div class="line-h"></div>
+          <p class="body-default-m" style="margin:0;"><strong style="color:var(--neutral-on-background-strong);">Serveur NTP mis en place au Lycee de Cachan</strong> &rarr; Prerequis transverse. La synchronisation temporelle est indispensable pour la correlation des logs de securite dans un SIEM Zero Trust.</p>
+          <div class="line-h"></div>
+          <p class="body-default-m" style="margin:0;"><strong style="color:var(--neutral-on-background-strong);">GLPI et gestion de tickets (Merlin Info, Mairie d'Arcueil)</strong> &rarr; Pilier Appareils. L'inventaire du parc et le suivi des incidents sont le socle de la visibilite necessaire au Zero Trust.</p>
+          <div class="line-h"></div>
+          <p class="body-default-m" style="margin:0;"><strong style="color:var(--neutral-on-background-strong);">Veeam Backup et sauvegardes</strong> &rarr; Resilience Zero Trust. DORA et NIS2 imposent des PRA testes - la sauvegarde est la derniere ligne de defense en cas de compromission.</p>
+        </div>
+        <div class="skill-tags-row" style="margin-top:14px;">
+          <span class="tag">Active Directory = Pilier Identite</span>
+          <span class="tag">Palo Alto = Pilier Reseau</span>
+          <span class="tag">NTP = Logs SIEM</span>
+          <span class="tag">GLPI = Visibilite parc</span>
+          <span class="tag">Veeam = Resilience</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep reveal">
+
+    <!-- SOURCES -->
+    <div class="reveal reveal-d5 col gap-12">
+      <div class="sh" style="margin-bottom:12px;"><h2>Sources utilisees</h2><p>Classees par canal de veille</p></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div class="col gap-6"><p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Presse et sites specialises</p><a class="src" href="https://itsocial.fr" target="_blank">IT Social - itsocial.fr</a><a class="src" href="https://www.lemagit.fr" target="_blank">LeMagIT - lemagit.fr</a><a class="src" href="https://www.zdnet.fr" target="_blank">ZDNet France - zdnet.fr</a><a class="src" href="https://www.silicon.fr" target="_blank">Silicon.fr</a></div>
-        <div class="col gap-6"><p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Sites institutionnels</p><a class="src" href="https://www.ssi.gouv.fr" target="_blank">ANSSI - ssi.gouv.fr</a><a class="src" href="https://www.cert.ssi.gouv.fr" target="_blank">CERT-FR - cert.ssi.gouv.fr</a><a class="src" href="https://www.cybermalveillance.gouv.fr" target="_blank">Cybermalveillance.gouv.fr</a></div>
-        <div class="col gap-6"><p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Rapports et barometres</p><a class="src" href="https://www.cesin.fr" target="_blank">Barometre CESIN 2026</a><a class="src" href="https://www.ivanti.com" target="_blank">Ivanti - State of Cybersecurity 2026</a><a class="src" href="https://www.mailinblack.com" target="_blank">Mailinblack - Tendances 2026</a></div>
-        <div class="col gap-6"><p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Forums et communautes</p><a class="src" href="https://www.reddit.com/r/netsec" target="_blank">Reddit r/netsec</a><a class="src" href="https://openclassrooms.com" target="_blank">Forum OpenClassrooms BTS SIO</a><a class="src" href="https://networkengineering.stackexchange.com" target="_blank">Stack Exchange Network Eng.</a></div>
+        <div class="col gap-6">
+          <p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Presse et sites specialises</p>
+          <a class="src" href="https://www.lemagit.fr" target="_blank">LeMagIT - lemagit.fr</a>
+          <a class="src" href="https://itsocial.fr" target="_blank">IT Social - itsocial.fr</a>
+          <a class="src" href="https://tech-insider.org" target="_blank">Tech Insider - tech-insider.org</a>
+          <a class="src" href="https://www.lockself.com/blog/zero-trust-definition-principes-cybersecurite" target="_blank">LockSelf - Zero Trust guide</a>
+        </div>
+        <div class="col gap-6">
+          <p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Sites institutionnels</p>
+          <a class="src" href="https://cyber.gouv.fr" target="_blank">ANSSI - cyber.gouv.fr</a>
+          <a class="src" href="https://www.microsoft.com/fr-fr/security/business/security-101/what-is-zero-trust-architecture" target="_blank">Microsoft Security - Zero Trust</a>
+          <a class="src" href="https://www.wiz.io/fr-fr/academy/compliance/zero-trust-architecture" target="_blank">Wiz Academy - ZTA guide</a>
+        </div>
+        <div class="col gap-6">
+          <p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Rapports et etudes</p>
+          <a class="src" href="https://www.entrust.com/fr/resources/learn/zero-trust" target="_blank">Entrust - Ponemon State of Zero Trust 2024</a>
+          <a class="src" href="https://www.live-laugh-love.world/fr/blog/zero-trust-architecture-implementation-guide-2026/" target="_blank">Gartner predictions Zero Trust 2026</a>
+          <a class="src" href="https://blog.interdata.fr/zero-trust-architecture" target="_blank">Interdata - Architecture ZTA NIST</a>
+        </div>
+        <div class="col gap-6">
+          <p class="body-default-s" style="font-weight:600;color:var(--neutral-on-background-medium);margin-bottom:4px;">Forums et communautes</p>
+          <a class="src" href="https://www.reddit.com/r/netsec" target="_blank">Reddit r/netsec</a>
+          <a class="src" href="https://openclassrooms.com" target="_blank">OpenClassrooms BTS SIO</a>
+          <a class="src" href="https://networkengineering.stackexchange.com" target="_blank">Stack Exchange Network Eng.</a>
+        </div>
       </div>
     </div>
 
   </div>
 </main>
+
 <footer>
   <div class="footer-inner">
     <p>2026 / <a href="about.html">Djadje Traore</a> / BTS SIO SISR</p>
